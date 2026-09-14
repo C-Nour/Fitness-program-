@@ -1,0 +1,1924 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>3-DAY TRAINING PROGRAM | C / NOUR</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #060911;
+            --card-bg: rgba(15, 23, 42, 0.85);
+            --card-border: rgba(255, 255, 255, 0.12);
+            
+            --day1-color: #a855f7;
+            --day2-color: #eab308;
+            --day3-color: #f97316;
+            --rest-color: #64748b;
+
+            --accent-gold: #f59e0b;
+            --current-theme: var(--day1-color);
+            --current-theme-glow: rgba(168, 85, 247, 0.4);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', 'Cairo', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 10% 10%, rgba(168, 85, 247, 0.18) 0%, transparent 45%),
+                radial-gradient(circle at 90% 90%, rgba(249, 115, 22, 0.18) 0%, transparent 45%),
+                radial-gradient(circle at 50% 50%, rgba(234, 179, 8, 0.1) 0%, transparent 65%);
+            background-attachment: fixed;
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 16px 12px 40px 12px;
+            direction: ltr;
+            transition: filter 0.25s ease;
+        }
+
+        @media print {
+            html, body {
+                display: none !important;
+                visibility: hidden !important;
+            }
+        }
+
+        .security-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 9999;
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(255, 255, 255, 0.003),
+                rgba(255, 255, 255, 0.003) 100px,
+                rgba(0, 0, 0, 0.003) 100px,
+                rgba(0, 0, 0, 0.003) 200px
+            );
+        }
+
+        #privacy-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #060911;
+            z-index: 99999;
+            color: #ffffff;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        /* HERO CARD */
+        .hero-card {
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.92), rgba(15, 23, 42, 0.98));
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 24px;
+            padding: 26px 18px;
+            text-align: center;
+            margin-bottom: 22px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--day1-color), var(--day2-color), var(--day3-color));
+        }
+
+        .coach-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 22px;
+            background: rgba(245, 158, 11, 0.15);
+            border: 1px solid rgba(245, 158, 11, 0.45);
+            border-radius: 50px;
+            color: #fbbf24;
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            margin-bottom: 14px;
+            text-transform: uppercase;
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.2);
+        }
+
+        .hero-title {
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: 0.8px;
+            color: #ffffff;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            line-height: 1.2;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+        }
+
+        .hero-subtitle {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            margin-bottom: 22px;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+        }
+
+        .days-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .day-btn {
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 14px;
+            padding: 14px 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+        }
+
+        .day-btn.d1 { border-color: var(--day1-color); }
+        .day-btn.d2 { border-color: var(--day2-color); }
+        .day-btn.d3 { border-color: var(--day3-color); }
+
+        .day-btn .num {
+            font-size: 0.78rem;
+            font-weight: 800;
+            display: block;
+            letter-spacing: 0.5px;
+        }
+
+        .day-btn.d1 .num { color: var(--day1-color); }
+        .day-btn.d2 .num { color: var(--day2-color); }
+        .day-btn.d3 .num { color: var(--day3-color); }
+
+        .day-btn .name {
+            font-size: 0.92rem;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1.25;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .day-btn:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        /* SELECTOR DROPDOWN */
+        .select-container {
+            margin-bottom: 18px;
+            position: relative;
+        }
+
+        .custom-select {
+            width: 100%;
+            padding: 14px 16px 14px 40px;
+            background: rgba(15, 23, 42, 0.95);
+            border: 2px solid var(--current-theme);
+            border-radius: 14px;
+            color: #ffffff;
+            font-size: 0.95rem;
+            font-weight: 800;
+            outline: none;
+            cursor: pointer;
+            appearance: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4), 0 0 18px var(--current-theme-glow);
+        }
+
+        .select-icon {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--current-theme);
+            pointer-events: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        /* PHASE TABS */
+        .phase-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 22px;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(12px);
+            padding: 6px;
+            border-radius: 14px;
+            border: 1px solid var(--card-border);
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 11px 4px;
+            border: none;
+            background: transparent;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 800;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .tab-btn.active {
+            background: var(--current-theme);
+            color: #ffffff;
+            box-shadow: 0 4px 16px var(--current-theme-glow);
+        }
+
+        /* CONTENT SECTIONS */
+        .phase-content {
+            display: none;
+            animation: fadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .phase-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* CARDS */
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid var(--card-border);
+            border-radius: 18px;
+            padding: 18px;
+            margin-bottom: 18px;
+            box-shadow: 0 8px 26px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px var(--current-theme-glow);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            gap: 10px;
+        }
+
+        .card-title-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .card-title-group i {
+            color: var(--current-theme);
+            font-size: 1.25rem;
+            flex-shrink: 0;
+            transition: color 0.3s ease;
+        }
+
+        .card-title {
+            font-size: 0.98rem;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1.3;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .badge-time, .sets-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .badge-time {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-muted);
+            font-size: 0.74rem;
+            font-weight: 800;
+            padding: 5px 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .sets-badge {
+            font-size: 0.74rem;
+            font-weight: 800;
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            padding: 5px 12px;
+            border-radius: 8px;
+        }
+
+        /* CARDIO SELECT NOTICE BADGE */
+        .select-notice-badge {
+            display: inline-block;
+            background: rgba(168, 85, 247, 0.15);
+            border: 1px solid rgba(168, 85, 247, 0.35);
+            color: #c084fc;
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.78rem;
+            font-weight: 800;
+            margin-bottom: 14px;
+            letter-spacing: 0.3px;
+        }
+
+        /* CARDIO OPTION CARDS */
+        .cardio-option-card {
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 13px;
+            padding: 14px 16px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .cardio-option-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .cardio-option-card:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateX(3px);
+        }
+
+        .cardio-option-card.selected {
+            border-color: var(--current-theme);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3), 0 0 12px var(--current-theme-glow);
+        }
+
+        .cardio-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .cardio-title {
+            font-size: 0.92rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 2px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .cardio-sub {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 6px;
+            direction: rtl;
+            text-align: left;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .cardio-details {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #c084fc;
+            line-height: 1.4;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        /* INTENSITY BOX IN WARMUP */
+        .intensity-box {
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 13px;
+            padding: 14px;
+            margin-bottom: 14px;
+            text-align: center;
+        }
+
+        .intensity-title {
+            color: var(--accent-gold);
+            font-size: 0.85rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            direction: rtl;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .intensity-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+
+        .intensity-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 8px;
+            padding: 8px 4px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .intensity-time {
+            font-size: 0.88rem;
+            font-weight: 800;
+            color: var(--current-theme);
+            transition: color 0.3s ease;
+        }
+
+        .intensity-pct {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin: 2px 0;
+        }
+
+        .intensity-desc {
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        /* MAIN WORKOUT INFO BANNER */
+        .main-workout-banner {
+            border: 1.5px solid var(--current-theme);
+            border-radius: 14px;
+            padding: 12px 14px;
+            margin-bottom: 18px;
+            text-align: center;
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: #ffffff;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 15px var(--current-theme-glow);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            white-space: normal;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        /* EXERCISE ITEMS */
+        .exercise-item {
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 13px;
+            padding: 13px 15px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .exercise-item:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateX(3px);
+        }
+
+        .exercise-item.selected {
+            border-color: var(--current-theme);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+        }
+
+        .check-box {
+            width: 23px;
+            height: 23px;
+            border-radius: 7px;
+            border: 2px solid rgba(255, 255, 255, 0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.2s ease;
+        }
+
+        .exercise-item.selected .check-box,
+        .cardio-option-card.selected .check-box {
+            background: var(--current-theme);
+            border-color: var(--current-theme);
+            box-shadow: 0 0 12px var(--current-theme-glow);
+        }
+
+        .check-box i {
+            font-size: 0.78rem;
+            color: #ffffff;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.2s ease;
+        }
+
+        .exercise-item.selected .check-box i,
+        .cardio-option-card.selected .check-box i {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .exercise-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .ex-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .ex-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 3px;
+            flex-wrap: wrap;
+        }
+
+        .ex-name-en {
+            font-size: 0.9rem;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1.3;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .ex-tag {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--current-theme);
+            background: rgba(255, 255, 255, 0.06);
+            padding: 2px 6px;
+            border-radius: 4px;
+            white-space: nowrap;
+            transition: color 0.3s ease;
+        }
+
+        .ex-name-ar {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            line-height: 1.35;
+            direction: rtl;
+            text-align: left;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .block-card {
+            background: rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 13px;
+            padding: 12px 14px;
+            margin-bottom: 12px;
+        }
+
+        .block-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            padding-bottom: 6px;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+        }
+
+        .block-title {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: var(--current-theme);
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .block-rest {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            background: rgba(255, 255, 255, 0.06);
+            padding: 2px 8px;
+            border-radius: 6px;
+        }
+
+        .site-footer {
+            text-align: center;
+            margin-top: 28px;
+            padding: 18px;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .site-footer span {
+            color: var(--accent-gold);
+            font-weight: 800;
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 12px 8px 30px 8px; }
+            .hero-title { font-size: 1.45rem; }
+            .day-btn { padding: 12px 6px; }
+            .day-btn .num { font-size: 0.72rem; }
+            .day-btn .name { font-size: 0.85rem; }
+            .ex-name-en { font-size: 0.84rem; }
+            .ex-name-ar { font-size: 0.78rem; }
+            .card-title { font-size: 0.9rem; }
+            .badge-time, .sets-badge { font-size: 0.7rem; padding: 4px 8px; }
+            .main-workout-banner { font-size: 0.78rem; padding: 10px 8px; }
+        }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="security-overlay"></div>
+
+    <div id="privacy-overlay">
+        <i class="fa-solid fa-shield-halved" style="font-size: 3rem; color: #f59e0b; margin-bottom: 15px;"></i>
+        <h2>PROTECTED CONTENT</h2>
+        <p style="color: #94a3b8; margin-top: 8px;">Screenshots and screen recording are disabled for privacy protection.</p>
+    </div>
+
+    <div class="container" id="main-content">
+        
+        <!-- HERO CARD -->
+        <div class="hero-card">
+            <div class="coach-badge">C / NOUR <i class="fa-solid fa-crown"></i></div>
+
+            <h1 class="hero-title">3-DAY TRAINING PROGRAM</h1>
+            <p class="hero-subtitle">FITNESS PROGRAM</p>
+            
+            <div class="days-grid">
+                <div class="day-btn d1" onclick="switchDay('day1')">
+                    <span class="num">Day</span>
+                    <span class="name">Push Fitness</span>
+                </div>
+                <div class="day-btn d2" onclick="switchDay('day2')">
+                    <span class="num">Day</span>
+                    <span class="name">Pull Fitness</span>
+                </div>
+                <div class="day-btn d3" onclick="switchDay('day3')">
+                    <span class="num">Day</span>
+                    <span class="name">Full Body Fitness</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SELECTOR DROPDOWN -->
+        <div class="select-container">
+            <select id="daySelect" class="custom-select" onchange="switchDay(this.value)">
+                <option value="day1">Day: Push Fitness</option>
+                <option value="day2">Day: Pull Fitness</option>
+                <option value="day3">Day: Full Body Fitness</option>
+            </select>
+            <i class="fa-solid fa-chevron-down select-icon"></i>
+        </div>
+
+        <!-- PHASE TAB BUTTONS -->
+        <div class="phase-tabs">
+            <button class="tab-btn active" onclick="switchPhase('warmup')">
+                <i class="fa-solid fa-fire"></i> Warm-Up
+            </button>
+            <button class="tab-btn" onclick="switchPhase('main')">
+                <i class="fa-solid fa-dumbbell"></i> Workout
+            </button>
+            <button class="tab-btn" onclick="switchPhase('cooldown')">
+                <i class="fa-solid fa-heart-pulse"></i> Cool-Down
+            </button>
+        </div>
+
+        <!-- ==================== DAY 1: PUSH FITNESS ==================== -->
+        <div id="day1" class="day-program">
+            <div class="phase-content warmup active">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <i class="fa-solid fa-person-running"></i>
+                            <span class="card-title">Part 1: General Warm-Up</span>
+                        </div>
+                        <span class="sets-badge">2 Rounds</span>
+                    </div>
+
+                    <!-- INTENSITY STRUCTURE BOX -->
+                    <div class="intensity-box">
+                        <div class="intensity-title">نظام الشدة الزمني Interval Structure</div>
+                        <div class="intensity-grid">
+                            <div class="intensity-item">
+                                <span class="intensity-time">20s</span>
+                                <span class="intensity-pct">50-60%</span>
+                                <span class="intensity-desc">Light Pace</span>
+                            </div>
+                            <div class="intensity-item">
+                                <span class="intensity-time">10s</span>
+                                <span class="intensity-pct">70-80%</span>
+                                <span class="intensity-desc">Moderate</span>
+                            </div>
+                            <div class="intensity-item">
+                                <span class="intensity-time">5s</span>
+                                <span class="intensity-pct">90-95%</span>
+                                <span class="intensity-desc">High Speed</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-header-row">
+                                <span class="ex-name-en">Jogging in Place</span>
+                                <span class="ex-tag">20s / 10s / 5s</span>
+                            </div>
+                            <div class="ex-name-ar">جري في المكان</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-header-row">
+                                <span class="ex-name-en">Jumping Jacks</span>
+                                <span class="ex-tag">20s / 10s / 5s</span>
+                            </div>
+                            <div class="ex-name-ar">قفز الجاك</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-header-row">
+                                <span class="ex-name-en">High Knees</span>
+                                <span class="ex-tag">20s / 10s / 5s</span>
+                            </div>
+                            <div class="ex-name-ar">رفع الركبتين عالياً</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <i class="fa-solid fa-arrows-spin"></i>
+                            <span class="card-title">Part 2: Joint & Core</span>
+                        </div>
+                        <span class="sets-badge">2 Rounds x 10</span>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Shoulder Circles</div>
+                            <div class="ex-name-ar">دوران الأكتاف والذراعين</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Wall External Rotation</div>
+                            <div class="ex-name-ar">الدوران الخارجي للكتف</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Wall External Rotation 90/90</div>
+                            <div class="ex-name-ar">الدوران الخارجي 90/90</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Torso Twists</div>
+                            <div class="ex-name-ar">لف الجذع</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Hip Rotation</div>
+                            <div class="ex-name-ar">دوران الحوض الخارجي والداخلي</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Leg Swings</div>
+                            <div class="ex-name-ar">مرجحة الساقين</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <i class="fa-solid fa-child"></i>
+                            <span class="card-title">Part 3: Dynamic Mobility</span>
+                        </div>
+                        <span class="sets-badge">2 Rounds</span>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Shoulder Pass-Throughs</div>
+                            <div class="ex-name-ar">تمرير العصا أو الاستك (10-12 Reps)</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">World's Greatest Stretch</div>
+                            <div class="ex-name-ar">إطالة العالم الكبرى (5-8 / side)</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Cat-Cow</div>
+                            <div class="ex-name-ar">القطة والبقرة (8 Reps)</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Hip Switches 90/90</div>
+                            <div class="ex-name-ar">تبديل الحوض 90/90 (8-10 / side)</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Ankle Knee-to-Wall</div>
+                            <div class="ex-name-ar">مرونة الكاحل عند الحائط (10 / leg)</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="phase-content main">
+                <div class="main-workout-banner">
+                    Sets 2-4 , Reps 20s - 60s , Rest 30s-90s
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <i class="fa-solid fa-dumbbell"></i>
+                            <span class="card-title">Push Fitness - Main Workout</span>
+                        </div>
+                        <span class="sets-badge">5 Blocks</span>
+                    </div>
+
+                    <div class="block-card">
+                        <div class="block-header">
+                            <span class="block-title">Block 1</span>
+                        </div>
+                        <div class="exercise-item" onclick="toggleSelect(this)">
+                            <div class="ex-info">
+                                <div class="ex-name-en">Kettlebell Swing - Lunge</div>
+                                <div class="ex-name-ar">أرجحة الكيتل بيل - الطعن</div>
+                            </div>
+                            <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                        </div>
+                    </div>
+
+                    <div class="block-card">
+                        <div class="block-header">
+                            <span class="block-title">Block 2</span>
+                        </div>
+                        <div class="exercise-item" onclick="toggleSelect(this)">
+                            <div class="ex-info">
+                                <div class="ex-name-en">Full Burpee - Jumping Front</div>
+                                <div class="ex-name-ar">رباعي كامل - قفز للأمام</div>
+                            </div>
+                            <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                        </div>
+                    </div>
+
+                    <div class="block-card">
+                        <div class="block-header">
+                            <span class="block-title">Block 3</span>
+                        </div>
+                        <div class="exercise-item" onclick="toggleSelect(this)">
+                            <div class="ex-info">
+                                <div class="ex-name-en">Plank Up-Downs - Shoulder Tap - Bird Dog</div>
+                                <div class="ex-name-ar">البلانك آب داون - لمس الاكتاف - بيرد دوج</div>
+                            </div>
+                            <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                        </div>
+                    </div>
+
+                    <div class="block-card">
+                        <div class="block-header">
+                            <span class="block-title">Block 4</span>
+                        </div>
+                        <div class="exercise-item" onclick="toggleSelect(this)">
+                            <div class="ex-info">
+                                <div class="ex-name-en">Single-Leg V-Up - Russian Twist</div>
+                                <div class="ex-name-ar">الرفع السبعي للرجل الواحدة - الدوران الروسي</div>
+                            </div>
+                            <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                        </div>
+                    </div>
+
+                    <div class="block-card">
+                        <div class="block-header">
+                            <span class="block-title">Block 5</span>
+                        </div>
+                        <div class="exercise-item" onclick="toggleSelect(this)">
+                            <div class="ex-info">
+                                <div class="ex-name-en">Push-Up</div>
+                                <div class="ex-name-ar">الضغط</div>
+                            </div>
+                            <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="phase-content cooldown">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                            <span class="card-title">End Cardio</span>
+                        </div>
+                        <span class="badge-time">20-30 MIN</span>
+                    </div>
+                    
+                    <div class="select-notice-badge">Select 1 Option Only</div>
+
+                    <div class="cardio-option-card" onclick="selectCardioOption(this)">
+                        <div class="cardio-info">
+                            <div class="cardio-title">OPTION A: Stairmaster</div>
+                            <div class="cardio-sub">(Stairmaster) جهاز السلم</div>
+                            <div class="cardio-details">Level: 5 to 8 | Speed: 50 to 70 SPM</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+
+                    <div class="cardio-option-card" onclick="selectCardioOption(this)">
+                        <div class="cardio-info">
+                            <div class="cardio-title">OPTION B: Cybex Arc Trainer</div>
+                            <div class="cardio-sub">(Cybex Arc Trainer) جهاز السايبكس</div>
+                            <div class="cardio-details">Incline: 10 to 15 Resistance: 35 to 50<br>Speed: 110 to 130 SPM</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+
+                    <div class="cardio-option-card" onclick="selectCardioOption(this)">
+                        <div class="cardio-info">
+                            <div class="cardio-title">OPTION C: Treadmill</div>
+                            <div class="cardio-sub">(Treadmill) المشاية</div>
+                            <div class="cardio-details">Incline: 8 to 12 | Speed: 3.5 to 4.5 km/h</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <i class="fa-solid fa-child"></i>
+                            <span class="card-title">Static Stretching</span>
+                        </div>
+                        <span class="sets-badge">2 Sets | Hold 20-30s</span>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Wall Chest Stretch</div>
+                            <div class="ex-name-ar">إطالة عضلات الصدر (Pectoralis Stretch)</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Standing Quadriceps Stretch</div>
+                            <div class="ex-name-ar">إطالة العضلة الرباعية (Quadriceps Stretch)</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Overhead Triceps Stretch</div>
+                            <div class="ex-name-ar">إطالة العضلة الثلاثية (Triceps Brachii Stretch)</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Standing Calf Stretch</div>
+                            <div class="ex-name-ar">إطالة عضلات السمانة (Gastrocnemius Stretch)</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Cross-Body Shoulder Stretch</div>
+                            <div class="ex-name-ar">إطالة الكتف الجانبي (Posterior Deltoid Stretch)</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== DAY 2: PULL FITNESS ==================== -->
+        <div id="day2" class="day-program" style="display: none;">
+            <div class="phase-content warmup active">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <i class="fa-solid fa-person-running"></i>
+                            <span class="card-title">Part 1: General Warm-Up</span>
+                        </div>
+                        <span class="sets-badge">2 Rounds</span>
+                    </div>
+
+                    <!-- INTENSITY STRUCTURE BOX -->
+                    <div class="intensity-box">
+                        <div class="intensity-title">نظام الشدة الزمني Interval Structure</div>
+                        <div class="intensity-grid">
+                            <div class="intensity-item">
+                                <span class="intensity-time">20s</span>
+                                <span class="intensity-pct">50-60%</span>
+                                <span class="intensity-desc">Light Pace</span>
+                            </div>
+                            <div class="intensity-item">
+                                <span class="intensity-time">10s</span>
+                                <span class="intensity-pct">70-80%</span>
+                                <span class="intensity-desc">Moderate</span>
+                            </div>
+                            <div class="intensity-item">
+                                <span class="intensity-time">5s</span>
+                                <span class="intensity-pct">90-95%</span>
+                                <span class="intensity-desc">High Speed</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-header-row">
+                                <span class="ex-name-en">Jogging in Place</span>
+                                <span class="ex-tag">20s / 10s / 5s</span>
+                            </div>
+                            <div class="ex-name-ar">جري في المكان</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-header-row">
+                                <span class="ex-name-en">Jumping Jacks</span>
+                                <span class="ex-tag">20s / 10s / 5s</span>
+                            </div>
+                            <div class="ex-name-ar">قفز الجاك</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-header-row">
+                                <span class="ex-name-en">High Knees</span>
+                                <span class="ex-tag">20s / 10s / 5s</span>
+                            </div>
+                            <div class="ex-name-ar">رفع الركبتين عالياً</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <i class="fa-solid fa-arrows-spin"></i>
+                            <span class="card-title">Part 2: Joint & Core</span>
+                        </div>
+                        <span class="sets-badge">2 Rounds x 10</span>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Shoulder Circles</div>
+                            <div class="ex-name-ar">دوران الأكتاف والذراعين</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Wall External Rotation</div>
+                            <div class="ex-name-ar">الدوران الخارجي للكتف</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Wall External Rotation 90/90</div>
+                            <div class="ex-name-ar">الدوران الخارجي 90/90</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Torso Twists</div>
+                            <div class="ex-name-ar">لف الجذع</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Hip Rotation</div>
+                            <div class="ex-name-ar">دوران الحوض الخارجي والداخلي</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Leg Swings</div>
+                            <div class="ex-name-ar">مرجحة الساقين</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <i class="fa-solid fa-child"></i>
+                            <span class="card-title">Part 3: Dynamic Mobility</span>
+                        </div>
+                        <span class="sets-badge">2 Rounds</span>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Shoulder Pass-Throughs</div>
+                            <div class="ex-name-ar">تمرير العصا أو الاستك (10-12 Reps)</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">World's Greatest Stretch</div>
+                            <div class="ex-name-ar">إطالة العالم الكبرى (5-8 / side)</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Cat-Cow</div>
+                            <div class="ex-name-ar">القطة والبقرة (8 Reps)</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Hip Switches 90/90</div>
+                            <div class="ex-name-ar">تبديل الحوض 90/90 (8-10 / side)</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Ankle Knee-to-Wall</div>
+                            <div class="ex-name-ar">مرونة الكاحل عند الحائط (10 / leg)</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="phase-content main">
+                <div class="main-workout-banner">
+                    Sets 2-4 , Reps 20s - 60s , Rest 30s-90s
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <i class="fa-solid fa-dumbbell"></i>
+                            <span class="card-title">Pull Fitness - Main Workout</span>
+                        </div>
+                        <span class="sets-badge">6 Blocks</span>
+                    </div>
+
+                    <div class="block-card">
+                        <div class="block-header">
+                            <span class="block-title">Block 1</span>
+                        </div>
+                        <div class="exercise-item" onclick="toggleSelect(this)">
+                            <div class="ex-info">
+                                <div class="ex-name-en">Pull-Up</div>
+                                <div class="ex-name-ar">العقلة</div>
+                            </div>
+                            <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                        </div>
+                    </div>
+
+                    <div class="block-card">
+                        <div class="block-header">
+                            <span class="block-title">Block 2</span>
+                        </div>
+                        <div class="exercise-item" onclick="toggleSelect(this)">
+                            <div class="ex-info">
+                                <div class="ex-name-en">Inverted Row</div>
+                                <div class="ex-name-ar">الضغط المعكوس</div>
+                            </div>
+                            <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                        </div>
+                    </div>
+
+                    <div class="block-card">
+                        <div class="block-header">
+                            <span class="block-title">Block 3</span>
+                        </div>
+                        <div class="exercise-item" onclick="toggleSelect(this)">
+                            <div class="ex-info">
+                                <div class="ex-name-en">Deadlift</div>
+                                <div class="ex-name-ar">الرفعة الميتة</div>
+                            </div>
+                            <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                        </div>
+                    </div>
+
+                    <div class="block-card">
+                        <div class="block-header">
+                            <span class="block-title">Block 4</span>
+                        </div>
+                        <div class="exercise-item" onclick="toggleSelect(this)">
+                            <div class="ex-info">
+                                <div class="ex-name-en">Burpee - Jumping Jack</div>
+                                <div class="ex-name-ar">رباعي - قفز الجاك</div>
+                            </div>
+                            <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                        </div>
+                    </div>
+
+                    <div class="block-card">
+                        <div class="block-header">
+                            <span class="block-title">Block 5</span>
+                        </div>
+                        <div class="exercise-item" onclick="toggleSelect(this)">
+                            <div class="ex-info">
+                                <div class="ex-name-en">Superman Pull - Alternate Superman - Glute Bridge</div>
+                                <div class="ex-name-ar">سوبرمان بول - سوبرمان البديل - الجسر</div>
+                            </div>
+                            <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                        </div>
+                    </div>
+
+                    <div class="block-card">
+                        <div class="block-header">
+                            <span class="block-title">Block 6</span>
+                        </div>
+                        <div class="exercise-item" onclick="toggleSelect(this)">
+                            <div class="ex-info">
+                                <div class="ex-name-en">Plank - Side Plank - Lower-Abs Leg Raise Hold</div>
+                                <div class="ex-name-ar">البلانك - البلانك الجانبي - ثبات رفع الأرجل للبطن السفلي</div>
+                            </div>
+                            <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="phase-content cooldown">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                            <span class="card-title">End Cardio</span>
+                        </div>
+                        <span class="badge-time">20-30 MIN</span>
+                    </div>
+                    
+                    <div class="select-notice-badge">Select 1 Option Only</div>
+
+                    <div class="cardio-option-card" onclick="selectCardioOption(this)">
+                        <div class="cardio-info">
+                            <div class="cardio-title">OPTION A: Stairmaster</div>
+                            <div class="cardio-sub">(Stairmaster) جهاز السلم</div>
+                            <div class="cardio-details">Level: 5 to 8 | Speed: 50 to 70 SPM</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+
+                    <div class="cardio-option-card" onclick="selectCardioOption(this)">
+                        <div class="cardio-info">
+                            <div class="cardio-title">OPTION B: Cybex Arc Trainer</div>
+                            <div class="cardio-sub">(Cybex Arc Trainer) جهاز السايبكس</div>
+                            <div class="cardio-details">Incline: 10 to 15 Resistance: 35 to 50<br>Speed: 110 to 130 SPM</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+
+                    <div class="cardio-option-card" onclick="selectCardioOption(this)">
+                        <div class="cardio-info">
+                            <div class="cardio-title">OPTION C: Treadmill</div>
+                            <div class="cardio-sub">(Treadmill) المشاية</div>
+                            <div class="cardio-details">Incline: 8 to 12 | Speed: 3.5 to 4.5 km/h</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <i class="fa-solid fa-child"></i>
+                            <span class="card-title">Static Stretching</span>
+                        </div>
+                        <span class="sets-badge">2 Sets | Hold 20-30s</span>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Standing Lat Stretch</div>
+                            <div class="ex-name-ar">إطالة مجنح الظهر (Latissimus Dorsi Stretch)</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Downward-Facing Dog Stretch</div>
+                            <div class="ex-name-ar">إطالة السلسلة الخلفية (Posterior Chain Stretch)</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Cobra Stretch</div>
+                            <div class="ex-name-ar">إطالة عضلات البطن (Rectus Abdominis Stretch)</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Seated Hamstring Stretch</div>
+                            <div class="ex-name-ar">إطالة عضلات الفخذ الخلفية (Hamstrings Stretch)</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Wall Biceps Stretch</div>
+                            <div class="ex-name-ar">إطالة العضلة الثنائية (Biceps Brachii Stretch)</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Wrist Flexor & Extensor Stretch</div>
+                            <div class="ex-name-ar">إطالة الساعد والمعصم (Forearm Flexor & Extensor)</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== DAY 3: FULL BODY FITNESS ==================== -->
+        <div id="day3" class="day-program" style="display: none;">
+            <div class="phase-content warmup active">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <i class="fa-solid fa-person-running"></i>
+                            <span class="card-title">Part 1: General Warm-Up</span>
+                        </div>
+                        <span class="sets-badge">2 Rounds</span>
+                    </div>
+
+                    <!-- INTENSITY STRUCTURE BOX -->
+                    <div class="intensity-box">
+                        <div class="intensity-title">نظام الشدة الزمني Interval Structure</div>
+                        <div class="intensity-grid">
+                            <div class="intensity-item">
+                                <span class="intensity-time">20s</span>
+                                <span class="intensity-pct">50-60%</span>
+                                <span class="intensity-desc">Light Pace</span>
+                            </div>
+                            <div class="intensity-item">
+                                <span class="intensity-time">10s</span>
+                                <span class="intensity-pct">70-80%</span>
+                                <span class="intensity-desc">Moderate</span>
+                            </div>
+                            <div class="intensity-item">
+                                <span class="intensity-time">5s</span>
+                                <span class="intensity-pct">90-95%</span>
+                                <span class="intensity-desc">High Speed</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-header-row">
+                                <span class="ex-name-en">Jogging in Place</span>
+                                <span class="ex-tag">20s / 10s / 5s</span>
+                            </div>
+                            <div class="ex-name-ar">جري في المكان</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-header-row">
+                                <span class="ex-name-en">Jumping Jacks</span>
+                                <span class="ex-tag">20s / 10s / 5s</span>
+                            </div>
+                            <div class="ex-name-ar">قفز الجاك</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-header-row">
+                                <span class="ex-name-en">High Knees</span>
+                                <span class="ex-tag">20s / 10s / 5s</span>
+                            </div>
+                            <div class="ex-name-ar">رفع الركبتين عالياً</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <i class="fa-solid fa-arrows-spin"></i>
+                            <span class="card-title">Part 2: Joint & Core</span>
+                        </div>
+                        <span class="sets-badge">2 Rounds x 10</span>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Shoulder Circles</div>
+                            <div class="ex-name-ar">دوران الأكتاف والذراعين</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Wall External Rotation</div>
+                            <div class="ex-name-ar">الدوران الخارجي للكتف</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Wall External Rotation 90/90</div>
+                            <div class="ex-name-ar">الدوران الخارجي 90/90</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Torso Twists</div>
+                            <div class="ex-name-ar">لف الجذع</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Hip Rotation</div>
+                            <div class="ex-name-ar">دوران الحوض الخارجي والداخلي</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Leg Swings</div>
+                            <div class="ex-name-ar">مرجحة الساقين</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <i class="fa-solid fa-child"></i>
+                            <span class="card-title">Part 3: Dynamic Mobility</span>
+                        </div>
+                        <span class="sets-badge">2 Rounds</span>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Shoulder Pass-Throughs</div>
+                            <div class="ex-name-ar">تمرير العصا أو الاستك (10-12 Reps)</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">World's Greatest Stretch</div>
+                            <div class="ex-name-ar">إطالة العالم الكبرى (5-8 / side)</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Cat-Cow</div>
+                            <div class="ex-name-ar">القطة والبقرة (8 Reps)</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Hip Switches 90/90</div>
+                            <div class="ex-name-ar">تبديل الحوض 90/90 (8-10 / side)</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Ankle Knee-to-Wall</div>
+                            <div class="ex-name-ar">مرونة الكاحل عند الحائط (10 / leg)</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="phase-content main">
+                <div class="main-workout-banner">
+                    Sets 2-4 , Reps 20s - 60s , Rest 30s-90s
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <i class="fa-solid fa-dumbbell"></i>
+                            <span class="card-title">Full Body Fitness - Main Workout</span>
+                        </div>
+                        <span class="sets-badge">7 Blocks</span>
+                    </div>
+
+                    <div class="block-card">
+                        <div class="block-header">
+                            <span class="block-title">Block 1</span>
+                        </div>
+                        <div class="exercise-item" onclick="toggleSelect(this)">
+                            <div class="ex-info">
+                                <div class="ex-name-en">Pull-Up</div>
+                                <div class="ex-name-ar">العقلة</div>
+                            </div>
+                            <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                        </div>
+                    </div>
+
+                    <div class="block-card">
+                        <div class="block-header">
+                            <span class="block-title">Block 2</span>
+                        </div>
+                        <div class="exercise-item" onclick="toggleSelect(this)">
+                            <div class="ex-info">
+                                <div class="ex-name-en">Inverted Row</div>
+                                <div class="ex-name-ar">الضغط المعكوس</div>
+                            </div>
+                            <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                        </div>
+                    </div>
+
+                    <div class="block-card">
+                        <div class="block-header">
+                            <span class="block-title">Block 3</span>
+                        </div>
+                        <div class="exercise-item" onclick="toggleSelect(this)">
+                            <div class="ex-info">
+                                <div class="ex-name-en">Squat</div>
+                                <div class="ex-name-ar">السكوات</div>
+                            </div>
+                            <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                        </div>
+                    </div>
+
+                    <div class="block-card">
+                        <div class="block-header">
+                            <span class="block-title">Block 4</span>
+                        </div>
+                        <div class="exercise-item" onclick="toggleSelect(this)">
+                            <div class="ex-info">
+                                <div class="ex-name-en">Full Hand Walkout - Jumping Jack</div>
+                                <div class="ex-name-ar">المشي على اليدين كاملا - قفز الجاك</div>
+                            </div>
+                            <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                        </div>
+                    </div>
+
+                    <div class="block-card">
+                        <div class="block-header">
+                            <span class="block-title">Block 5</span>
+                        </div>
+                        <div class="exercise-item" onclick="toggleSelect(this)">
+                            <div class="ex-info">
+                                <div class="ex-name-en">Kneeling Clean - Glute Bridge</div>
+                                <div class="ex-name-ar">الكلين من الركبة بالوزن - الجسر</div>
+                            </div>
+                            <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                        </div>
+                    </div>
+
+                    <div class="block-card">
+                        <div class="block-header">
+                            <span class="block-title">Block 6</span>
+                        </div>
+                        <div class="exercise-item" onclick="toggleSelect(this)">
+                            <div class="ex-info">
+                                <div class="ex-name-en">Sit-Up - Heel Touches - Leg Raise</div>
+                                <div class="ex-name-ar">الست أب - لمس الكعبين - رفع الأرجل</div>
+                            </div>
+                            <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                        </div>
+                    </div>
+
+                    <div class="block-card">
+                        <div class="block-header">
+                            <span class="block-title">Block 7</span>
+                        </div>
+                        <div class="exercise-item" onclick="toggleSelect(this)">
+                            <div class="ex-info">
+                                <div class="ex-name-en">Push-Up</div>
+                                <div class="ex-name-ar">الضغط</div>
+                            </div>
+                            <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="phase-content cooldown">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                            <span class="card-title">End Cardio</span>
+                        </div>
+                        <span class="badge-time">20-30 MIN</span>
+                    </div>
+                    
+                    <div class="select-notice-badge">Select 1 Option Only</div>
+
+                    <div class="cardio-option-card" onclick="selectCardioOption(this)">
+                        <div class="cardio-info">
+                            <div class="cardio-title">OPTION A: Stairmaster</div>
+                            <div class="cardio-sub">(Stairmaster) جهاز السلم</div>
+                            <div class="cardio-details">Level: 5 to 8 | Speed: 50 to 70 SPM</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+
+                    <div class="cardio-option-card" onclick="selectCardioOption(this)">
+                        <div class="cardio-info">
+                            <div class="cardio-title">OPTION B: Cybex Arc Trainer</div>
+                            <div class="cardio-sub">(Cybex Arc Trainer) جهاز السايبكس</div>
+                            <div class="cardio-details">Incline: 10 to 15 Resistance: 35 to 50<br>Speed: 110 to 130 SPM</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+
+                    <div class="cardio-option-card" onclick="selectCardioOption(this)">
+                        <div class="cardio-info">
+                            <div class="cardio-title">OPTION C: Treadmill</div>
+                            <div class="cardio-sub">(Treadmill) المشاية</div>
+                            <div class="cardio-details">Incline: 8 to 12 | Speed: 3.5 to 4.5 km/h</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <i class="fa-solid fa-child"></i>
+                            <span class="card-title">Static Stretching</span>
+                        </div>
+                        <span class="sets-badge">2 Sets | Hold 20-30s</span>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Cross-Body Shoulder Stretch</div>
+                            <div class="ex-name-ar">إطالة الكتف الجانبي (Posterior Deltoid Stretch)</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Cobra Stretch</div>
+                            <div class="ex-name-ar">إطالة عضلات البطن (Rectus Abdominis Stretch)</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Child's Pose Stretch</div>
+                            <div class="ex-name-ar">إطالة أسفل الظهر والكتفين (Thoracolumbar Stretch)</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Downward-Facing Dog Stretch</div>
+                            <div class="ex-name-ar">إطالة السلسلة الخلفية (Posterior Chain Stretch)</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Standing Quadriceps Stretch</div>
+                            <div class="ex-name-ar">إطالة العضلة الرباعية (Quadriceps Stretch)</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="exercise-item" onclick="toggleSelect(this)">
+                        <div class="ex-info">
+                            <div class="ex-name-en">Wall Chest Stretch</div>
+                            <div class="ex-name-ar">إطالة عضلات الصدر (Pectoralis Stretch)</div>
+                        </div>
+                        <div class="check-box"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="site-footer">
+            Designed & Developed for <span>C / NOUR</span> Workout Programs
+        </div>
+
+    </div>
+
+    <script>
+        const themeColors = {
+            day1: '#a855f7',
+            day2: '#eab308',
+            day3: '#f97316'
+        };
+
+        const themeGlows = {
+            day1: 'rgba(168, 85, 247, 0.4)',
+            day2: 'rgba(234, 179, 8, 0.4)',
+            day3: 'rgba(249, 115, 22, 0.4)'
+        };
+
+        function switchDay(dayId) {
+            document.getElementById('daySelect').value = dayId;
+
+            const days = document.querySelectorAll('.day-program');
+            days.forEach(day => day.style.display = 'none');
+
+            const selectedDay = document.getElementById(dayId);
+            if (selectedDay) {
+                selectedDay.style.display = 'block';
+            }
+
+            document.documentElement.style.setProperty('--current-theme', themeColors[dayId]);
+            document.documentElement.style.setProperty('--current-theme-glow', themeGlows[dayId]);
+
+            switchPhase('warmup');
+        }
+
+        function switchPhase(phaseClass) {
+            const activeDayId = document.getElementById('daySelect').value;
+            const activeDay = document.getElementById(activeDayId);
+
+            if (!activeDay) return;
+
+            const tabs = document.querySelectorAll('.tab-btn');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            if (phaseClass === 'warmup') tabs[0].classList.add('active');
+            if (phaseClass === 'main') tabs[1].classList.add('active');
+            if (phaseClass === 'cooldown') tabs[2].classList.add('active');
+
+            const phases = activeDay.querySelectorAll('.phase-content');
+            phases.forEach(p => p.classList.remove('active'));
+
+            const targetPhase = activeDay.querySelector(`.phase-content.${phaseClass}`);
+            if (targetPhase) {
+                targetPhase.classList.add('active');
+            }
+        }
+
+        function toggleSelect(element) {
+            element.classList.toggle('selected');
+        }
+
+        function selectCardioOption(element) {
+            const parentCard = element.closest('.card');
+            const options = parentCard.querySelectorAll('.cardio-option-card');
+            
+            if (element.classList.contains('selected')) {
+                element.classList.remove('selected');
+            } else {
+                options.forEach(opt => opt.classList.remove('selected'));
+                element.classList.add('selected');
+            }
+        }
+
+        // Enhanced Anti-Screenshot & Screen Recording Protections
+        document.addEventListener('contextmenu', event => event.preventDefault());
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'PrintScreen' || 
+                (e.ctrlKey && e.key === 'p') || 
+                (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'S' || e.key === 's' || e.key === 'C' || e.key === 'c' || e.key === 'J' || e.key === 'j')) ||
+                (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 's' || e.key === 'S' || e.key === 'a' || e.key === 'A'))) {
+                e.preventDefault();
+                showOverlay();
+            }
+        });
+
+        window.addEventListener('keyup', function(e) {
+            if (e.key === 'PrintScreen') {
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText('');
+                }
+                showOverlay();
+            }
+        });
+
+        function showOverlay() {
+            const overlay = document.getElementById('privacy-overlay');
+            overlay.style.display = 'flex';
+            setTimeout(() => {
+                overlay.style.display = 'none';
+            }, 2500);
+        }
+
+        // Blur screen when app loses focus or screen recording attempt occurs
+        window.addEventListener('blur', function() {
+            document.body.style.filter = 'blur(25px)';
+        });
+        window.addEventListener('focus', function() {
+            document.body.style.filter = 'none';
+        });
+    </script>
+</body>
+</html>
